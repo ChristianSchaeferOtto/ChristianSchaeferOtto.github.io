@@ -5,12 +5,20 @@ $( document ).ready(function() {
 
 function testSearch(id) {
   const base_url = "https://search.live.opal.cloud.otto.de/opal-search/products?onlineRelevance.value=in(ACTIVE,INACTIVE)&callback=xxx&";
+  $.ajax({
+      url: base_url + "_id=" + id,
+      jsonp : false,
+      jsonpCallback: 'testSearchSuccess',
+      // contentType: 'application/json', -- you can't set content type for a <script> tag, this option does nothing for jsonp | KevinB
+      cache: 'true',
+      dataType : 'jsonp'
+  });
+  /*
   $.get({
     url: base_url + "_id=" + id,
     success: testSearchSuccess,
     dataType: 'jsonp'
   });
-  /*
   $.get( base_url + "_id=" + id, function( data ) {
     $( ".result_raw" ).html( data );
     alert( "Load was performed." );
