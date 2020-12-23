@@ -4,7 +4,7 @@ $( document ).ready(function() {
 });
 
 function testSearch(id) {
-  const base_url = "https://search.live.opal.cloud.otto.de/opal-search/products?onlineRelevance.value=in(ACTIVE,INACTIVE)&";
+  const base_url = "https://search.live.opal.cloud.otto.de/opal-search/products?onlineRelevance.value=in(ACTIVE,INACTIVE)&callback=xxx&";
   $.get({
     url: base_url + "_id=" + id,
     success: testSearchSuccess,
