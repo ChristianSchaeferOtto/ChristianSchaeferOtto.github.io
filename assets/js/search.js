@@ -4,11 +4,17 @@ $( document ).ready(function() {
 });
 
 function testSearch(id) {
+/*
   const base_url = "https://search.live.opal.cloud.otto.de/opal-search/products?onlineRelevance.value=in(ACTIVE,INACTIVE)&";
   $.get({
     url: base_url + "_id=" + id,
     success: testSearchSuccess,
     dataType: 'jsonp'
+  });
+*/
+  $.get( base_url + "_id=" + id, function( data ) {
+    $( ".result_raw" ).html( data );
+    alert( "Load was performed." );
   });
 }
 
