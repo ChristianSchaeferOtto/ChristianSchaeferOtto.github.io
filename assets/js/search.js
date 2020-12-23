@@ -1,7 +1,16 @@
 $( document ).ready(function() {
     console.log( "ready!" );
+    testSearch("1088020240")
 });
 
+function testSearch(id) {
+  const base_url = "https://search.live.opal.cloud.otto.de/opal-search/products?onlineRelevance.value=in(ACTIVE,INACTIVE)&";
+  var result = $.get(base_url + "_id=" + id);
+  $("p.result_raw").first().text(result);
+}
+
+
+/*
 if(window.location.search) {
 (function(queryString){
   const urlParams = new URLSearchParams(queryString);
@@ -17,3 +26,4 @@ if(window.location.search) {
   document.write("ean: "+ean);
 }(window.location.search));
 }
+*/
