@@ -1,4 +1,8 @@
+$( document ).ready(function() {
+    console.log( "ready!" );
+});
 
+if(window.location.search) {
 (function(queryString){
   const urlParams = new URLSearchParams(queryString);
   const product_id = urlParams.get('product_id');
@@ -12,3 +16,4 @@
   const ean = urlParams.get('ean');
   document.write("ean: "+ean);
 }(window.location.search));
+}
